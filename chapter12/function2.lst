@@ -1,0 +1,74 @@
+     1                                  ;; function2.asm
+     2                                  extern	printf
+     3                                  section	.data
+     4 00000000 0000000000002440        	radius	dq	10.0
+     5                                  section	.bss
+     6                                  section	.text
+     7                                  ;-----------------------------------------
+     8                                  area:
+     9                                  	section	.data
+    10 00000008 50455254FB210940        		.pi	dq	3.141592654	; Local variable in area funtion.
+    11                                  	section	.text
+    12                                  	
+    13 00000000 55                      	push	rbp
+    14 00000001 4889E5                  	mov	rbp, rsp
+    15                                  	
+    16 00000004 F20F100425-             	movsd	xmm0, [radius]
+    16 00000009 [00000000]         
+    17 0000000D F20F590425-             	mulsd	xmm0, [radius]
+    17 00000012 [00000000]         
+    18 00000016 F20F590425-             	mulsd	xmm0, [.pi]
+    18 0000001B [08000000]         
+    19 0000001F C9                      leave
+    20 00000020 C3                      ret
+    21                                  ;-----------------------------------------
+    22                                  circum:
+    23                                  	section	.data
+    24 00000010 1F85EB51B81E0940        		.pi	dq	3.14		; Local variable in circum fuction.
+    25                                  	section	.text
+    26                                  
+    27 00000021 55                      	push	rbp
+    28 00000022 4889E5                  	mov	rbp, rsp
+    29                                  
+    30 00000025 F20F100425-             	movsd	xmm0, [radius]
+    30 0000002A [00000000]         
+    31 0000002E F20F580425-             	addsd	xmm0, [radius]
+    31 00000033 [00000000]         
+    32 00000037 F20F590425-             	mulsd	xmm0, [.pi]
+    32 0000003C [10000000]         
+    33 00000040 C9                      leave
+    34 00000041 C3                      ret
+    35                                  ;-----------------------------------------
+    36                                  circle:
+    37                                  	section	.data
+    38 00000018 546865206172656120-     		.fmt_area	db	"The area is %.7f",10,0
+    38 00000021 697320252E37660A00 
+    39 0000002A 546865206369726375-     		.fmt_circle	db	"The circumference is %.7f",10,0
+    39 00000033 6D666572656E636520-
+    39 0000003C 697320252E37660A00 
+    40                                  	section	.text
+    41                                  
+    42 00000042 55                      	push	rbp
+    43 00000043 4889E5                  	mov	rbp, rsp
+    44                                  
+    45 00000046 E8B5FFFFFF              	call	area
+    46 0000004B 48BF-                   	mov	rdi, .fmt_area
+    46 0000004D [1800000000000000] 
+    47 00000055 B801000000              	mov	rax, 1
+    48 0000005A E8(00000000)            	call	printf
+    49 0000005F E8BDFFFFFF              	call	circum
+    50 00000064 48BF-                   	mov	rdi, .fmt_circle
+    50 00000066 [2A00000000000000] 
+    51 0000006E B801000000              	mov	rax, 1
+    52 00000073 E8(00000000)            	call	printf
+    53 00000078 C9                      leave
+    54 00000079 C3                      ret
+    55                                  ;-----------------------------------------
+    56                                  	global	main
+    57                                  main:
+    58 0000007A 55                      	push	rbp
+    59 0000007B 4889E5                  	mov	rbp, rsp
+    60                                  
+    61 0000007E E8BFFFFFFF              	call	circle
+    62 00000083 C9                      leave
+    63 00000084 C3                      ret
