@@ -1,0 +1,19 @@
+     1                                  ;hello.asm
+     2                                  section .data
+     3 00000000 48656C6C6F2C20576F-         msg	   db	"Hello, World!", 0
+     3 00000009 726C642100         
+     4                                  section .bss
+     5                                  section .text
+     6                                  	global main 
+     7                                  main:
+     8 00000000 B801000000              	mov	rax, 1		; 1 = wrtie
+     9 00000005 BF01000000              	mov	rdi, 1		; 1 = in stdout
+    10 0000000A 48BE-                   	mov	rsi, msg	; Output string in register rsi.
+    10 0000000C [0000000000000000] 
+    11 00000014 BA0D000000              	mov	rdx, 13		; Lenght of msg without 0.
+    12 00000019 0F05                    	syscall			; Syscall to line out to terminal.
+    13 0000001B B83C000000              	mov	rax, 60		; 60 = exit code to OS.
+    14 00000020 BF00000000              	mov	rdi, 0		; 0 = success finish code.
+    15 00000025 0F05                    	syscall			; Exit.
+    16                                  
+    17                                  
