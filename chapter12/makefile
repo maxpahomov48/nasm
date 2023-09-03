@@ -1,4 +1,4 @@
-#makefile for jump.asm, hello4.asm
+#makefile for function.asm, function2.asm
 function: function.o
 	gcc -o function function.o -no-pie
 function.o: function.asm
