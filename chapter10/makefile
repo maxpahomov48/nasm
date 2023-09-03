@@ -1,4 +1,4 @@
-#makefile for jump.asm, hello4.asm
+#makefile for stack.asm
 stack:	stack.o
 	gcc -o stack stack.o -no-pie
 stack.o: stack.asm
