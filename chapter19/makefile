@@ -1,4 +1,4 @@
-#makefile for function, circle and rect.
+#makefile for console1 and console2.
 console1: console1.o 
 	gcc -g -o console1 console1.o -no-pie
 console1.o: console1.asm

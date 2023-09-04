@@ -1,3 +1,4 @@
+# makefile for hello.
 hello: hello.o
 	gcc -o hello hello.o -no-pie
 hello.o: hello.asm

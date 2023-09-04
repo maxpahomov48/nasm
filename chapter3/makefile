@@ -1,3 +1,4 @@
+#makefile for hello2 and hello3
 hello2:	hello2.o
 	gcc -o hello2 hello2.o -no-pie
 hello2.o: hello2.asm

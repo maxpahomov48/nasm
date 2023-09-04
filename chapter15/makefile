@@ -1,4 +1,4 @@
-#makefile for function, circle and rect.
+#makefile for function5, function6.
 function5: function5.o 
 	gcc -o function5 function5.o -no-pie
 function5.o: function5.asm

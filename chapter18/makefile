@@ -1,4 +1,4 @@
-#makefile for function, circle and rect.
+#makefile for macro.
 macro: macro.o 
 	gcc -g -o macro macro.o -no-pie
 macro.o: macro.asm

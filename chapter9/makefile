@@ -1,4 +1,4 @@
-#makefile for jump.asm, hello4.asm
+#makefile for icalc.
 icalc:	icalc.o
 	gcc -o icalc icalc.o -no-pie
 icalc.o: icalc.asm

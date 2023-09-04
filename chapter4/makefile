@@ -1,4 +1,4 @@
-#makefile for alive.asm, hello4.asm
+#makefile for alive, hello4 and alive2
 alive:	alive.o
 	gcc -o alive alive.o -no-pie
 alive.o: alive.asm

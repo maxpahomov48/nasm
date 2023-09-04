@@ -1,4 +1,4 @@
-#makefile for jump.asm, hello4.asm
+#makefile for jump, jumploop and batterloop.
 jump:	jump.o
 	gcc -o jump jump.o -no-pie
 jump.o: jump.asm

@@ -1,4 +1,4 @@
-#makefile for function, circle and rect.
+#makefile for bits3 and printb.
 bits3: bits3.o printb.o
 	gcc -g -o bits3 bits3.o printb.o -no-pie
 bits3.o: bits3.asm

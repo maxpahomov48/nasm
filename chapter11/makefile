@@ -1,4 +1,4 @@
-#makefile for jump.asm, hello4.asm
+#makefile for fcalc.asm.
 fcalc:	fcalc.o
 	gcc -o fcalc fcalc.o -no-pie
 fcalc.o: fcalc.asm

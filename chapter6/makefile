@@ -1,4 +1,4 @@
-#makefile for move.asm, hello4.asm
+#makefile for move.asm
 move:	move.o
 	gcc -o move move.o -no-pie
 move.o: move.asm

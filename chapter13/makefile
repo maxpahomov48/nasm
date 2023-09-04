@@ -1,4 +1,4 @@
-#makefile for jump.asm, hello4.asm
+#makefile for aligned.asm
 aligned: aligned.o
 	gcc -o aligned aligned.o -no-pie
 aligned.o: aligned.asm
