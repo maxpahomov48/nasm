@@ -1,4 +1,4 @@
-#makefile for function, circle and rect.
+#makefile for file.
 file: file.o 
 	gcc -g -o file file.o -no-pie
 file.o: file.asm
