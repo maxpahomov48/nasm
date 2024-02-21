@@ -11,3 +11,5 @@ batterloop: batterloop.o
 	gcc -o batterloop batterloop.o -no-pie
 batterloop.o: batterloop.asm
 	nasm -f elf64 -g -F dwarf batterloop.asm -l batterloop.lst
+clean:
+	rm -r *.o *.lst batterloop jump jumploop
