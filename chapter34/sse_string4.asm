@@ -13,8 +13,8 @@ section .bss
 section .text							
 	global main					
 main:
-push	rbp
-mov	rbp,rsp
+	push	rbp
+	mov	rbp,rsp
 ;print the search characters
 	mov 	rdi, fmt
 	mov 	rsi, string2
@@ -42,9 +42,10 @@ ret
 ;-------------------------------------------------------------
 ;function searching for and printing the mask
 pcharsrch:           ;packed character search
-push	rbp		
-mov	rbp,rsp
-    	sub	rsp,16      ;provide stack space for pushing xmm1
+	push	rbp		
+	mov	rbp,rsp
+    	
+	sub	rsp,16      ;provide stack space for pushing xmm1
 	xor 	r12,r12     ;for the running total of occurrences
     	xor 	rcx,rcx     ;for signaling the end
     	xor 	rbx,rbx     ;for address calculation
@@ -92,9 +93,9 @@ ret
 ;-------------------------------------------------------------
 ;function for finding the terminating 0
 pstrlen:
-push	rbp		
-mov	rbp,rsp
-	sub 	rsp,16 		;for saving xmm0
+	push	rbp		
+	mov	rbp,rsp
+	sub	rsp,16 		;for saving xmm0
    	movdqu 	[rbp-16],xmm0	;push xmm0
 	mov	rax, -16	;avoid flag setting later
 	pxor    xmm0, xmm0	;search for 0 (end of string)	
@@ -113,7 +114,7 @@ ret
 print_mask:
 push	rbp		
 mov	rbp,rsp
-	sub 		rsp,16 		;for saving xmm0
+	sub 	rsp,16 		;for saving xmm0
     	call 	reverse_xmm0	;little endian
     	pmovmskb r13d,xmm0  	;mov byte mask to edx
     	movdqu 	[rbp-16],xmm1	;push xmm1 because of printf
